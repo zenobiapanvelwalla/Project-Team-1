@@ -1,5 +1,7 @@
 # Project-Team-1
 
+I think, I approved Franchise management system and asked you to focus on a specific domain. Please remove other  projects and update the readme. thx
+
 DishClose (From Professor Rakesh Ranjan’s Blog):
 Team Members: Aishwarya Saxena, Aprajita, Tong Wu,Zenobia Adnan Panvelwala.
 Abstract
