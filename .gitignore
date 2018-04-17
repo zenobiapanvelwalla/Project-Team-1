@@ -57,3 +57,6 @@ typings/
 # dotenv environment variables file
 .env
 
+#ignore the node_modules folder
+node_modules
+
