@@ -5,7 +5,7 @@ function connectionPool() {
         connectionLimit: 100, //important
         host: "localhost",
         user: "root",
-        password: "",
+        password: "283229ansz",
         database: "fms"
     });
     pool.getConnection(function(err, connection) {

@@ -30,4 +30,24 @@ router.post('/', function(req, res, next) {
   });
 });
 
+router.get('/',function(req,res,next){
+  // user_id = req.session.user_id;
+  // con.query('SELECT * FROM leads WHERE user_id=?',[user_id],function(err,leads){
+  //   if(err) throw err;
+  //   res.render('leadsList',{leads:leads});
+  // });
+
+  res.render('leadsList',{title:"Home"});
+  
+});
+
+router.get('/:lead_id',function(req,res){
+  user_id = req.session.user_id;
+  con.query('SELECT * from leads WHERE id=? AND user_id=?',[req.params.lead_id,user_id],function(err,lead){
+    if(err) throw err;
+    res.render('leadDetails',{title:"Lead Details",lead:lead});
+  });
+  
+});
+
 module.exports = router;
