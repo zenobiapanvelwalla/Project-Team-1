@@ -31,23 +31,45 @@ router.post('/', function(req, res, next) {
 });
 
 router.get('/',function(req,res,next){
-  // user_id = req.session.user_id;
-  // con.query('SELECT * FROM leads WHERE user_id=?',[user_id],function(err,leads){
-  //   if(err) throw err;
-  //   res.render('leadsList',{leads:leads});
-  // });
+  //user_id = req.session.user_id;
+  user_id = 1;
+  con.query('SELECT * FROM leads WHERE user_id=?',[user_id],function(err,leads){
+    if(err) throw err;
+    res.render('leadsList',{title:"Home",leads:leads});
+  });
 
-  res.render('leadsList',{title:"Home"});
+  //res.render('leadsList',{title:"Home",leads:leads});
   
 });
 
 router.get('/:lead_id',function(req,res){
-  user_id = req.session.user_id;
+  //user_id = req.session.user_id;
+  user_id = 1;
+
   con.query('SELECT * from leads WHERE id=? AND user_id=?',[req.params.lead_id,user_id],function(err,lead){
     if(err) throw err;
-    res.render('leadDetails',{title:"Lead Details",lead:lead});
+    con.query('SELECT tasks.id,tasks.name,tasks.description,tasks.additional_information,tasks.franchisor_id,lead_tasks.lead_id,lead_tasks.task_id,lead_tasks.status,lead_tasks.document FROM tasks LEFT JOIN lead_tasks ON tasks.id=lead_tasks.task_id WHERE tasks.franchisor_id=?',[user_id],function(err,tasks){
+      if(err) throw err;
+      console.log(tasks);
+      res.render('leadDetails',{title:"Lead Details",lead:lead[0],tasks: tasks});
+
+    });
+    
   });
   
+});
+
+//get the lead's tasks. 
+router.get('/tasks/:lead_id',function(req,res){
+  con.query('SELECT * FROM leads WHERE id=?',[req.params.lead_id],function(err,lead){
+    if(err) throw err;
+    var user_id = lead[0].user_id;
+    con.query('SELECT tasks.id,tasks.name,tasks.description,tasks.additional_information,tasks.franchisor_id,lead_tasks.lead_id,lead_tasks.task_id,lead_tasks.status,lead_tasks.document FROM tasks LEFT JOIN lead_tasks ON tasks.id=lead_tasks.task_id WHERE tasks.franchisor_id=?',[user_id],function(err,tasks){
+      if(err) throw err;
+      res.render('leadsTasks',{title:"Your Tasks",tasks:tasks,lead:lead[0]});
+    });
+
+  });
 });
 
 module.exports = router;

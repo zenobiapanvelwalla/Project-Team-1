@@ -241,7 +241,7 @@ url('http://franconnect.com/wp-content/uploads/avia_fonts/mmitcicons2/mmitcicons
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-        <!------ Include the above in your HEAD tag ---------->
+        <!--  Include the above in your HEAD tag -->
         
         
         <hr>
@@ -323,38 +323,30 @@ url('http://franconnect.com/wp-content/uploads/avia_fonts/mmitcicons2/mmitcicons
         </script>
         <div class="container bootstrap snippet">
             <div class="row">
-                  <div class="col-sm-10"><h1>Nome Cognome</h1></div>
-                <div class="col-sm-2"><a href="/users" class="pull-right"><img title="profile image" class="img-circle img-responsive" src=""></a></div>
+                  <div class="col-sm-10"><h1><%= lead['first_name'] %> <%= lead['last_name'] %></h1></div>
+                <div class="col-sm-2"><a href="#" class="pull-right"><img title="profile image" class="img-circle img-responsive" src=""></a></div>
             </div>
             <div class="row">
                   <div class="col-sm-3"><!--left col-->
                       
                   <ul class="list-group">
-                    <li class="list-group-item text-muted">Profilo</li>
-                    <li class="list-group-item text-right"><span class="pull-left"><strong>Nome</strong></span> Andrea</li>
-                    <li class="list-group-item text-right"><span class="pull-left"><strong>Email</strong></span> andrearossi.it</li>
-                    <li class="list-group-item text-right"><span class="pull-left"><strong>Telefono</strong></span> +391236669992</li>
-                    <li class="list-group-item text-right"><span class="pull-left"><strong>Ultimo accesso</strong></span> 23/07/2016</li>
+                    <li class="list-group-item text-muted">Profile</li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong>Nome</strong></span> <%= lead['first_name'] %> <%= lead['last_name'] %></li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong>Email</strong></span><%= lead['email'] %></li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong>Telefono</strong></span> <%= lead['phone_number'] %></li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong>Best Time To Call</strong></span><%= lead['best_time_to_call'] %></li>
+                    <li class="list-group-item text-right"><span class="pull-left"><strong>Current Occupation</strong></span><%= lead['current_occupation'] %></li>
                     
                   </ul> 
-                  <ul class="list-group">
-                      <li class="list-group-item text-right"><span class="pull-left"><strong>Allergie</strong></span> <button>edit</button><div class="expandable form-group text-center" style="margin-top:30px; width:100%" data-count="1">
-                <div class="row">
-                    <input name="name[]" type="text" id="name[]"  placeholder="Allergia">
-                    <button class="btn add-more" id="add-more" type="button">+</button>
-                </div>
-            </div></li>
-                   
-                    
-                  </ul> 
+                  
                        
                   
                 </div><!--/col-3-->
                 <div class="col-sm-9">
                   
                   <ul class="nav nav-tabs" id="myTab">
-                    <li class="active"><a href="#home" data-toggle="tab">Ultimo Trattamento</a></li>
-                    <li><a href="#messages" data-toggle="tab">Cronologia Appuntamenti</a></li>
+                    <li class="active"><a href="#home" data-toggle="tab">Further Details</a></li>
+                    <li><a href="#messages" data-toggle="tab">Tasks</a></li>
                     <li><a href="#settings" data-toggle="tab">Modifica utente</a></li>
                   </ul>
                       
@@ -364,23 +356,30 @@ url('http://franconnect.com/wp-content/uploads/avia_fonts/mmitcicons2/mmitcicons
                         <table class="table table-hover">
                           <thead>
                             <tr>
-                              <th>Data</th>
-                              <th>Trattamento</th>
-                              <th>Prodotti utilizzati</th>
-                              <th>Colori utilizzati</th>
-                              <th>Note</th>
-                              <th>Modifica</th>
+                              <th>City</th>
+                              <th>State</th>
+                              <th>Zip Code</th>
+                              <th>Address</th>
+                              <th>Net Worth</th>
+                              <th>Assets</th>
+                              <th>Partners</th>
+                              <th>Interested</th>
+                              <th>Background</th>
                             </tr>
                           </thead>
                           <tbody id="items">
                             <tr data-toggle="collapse" data-target="#demo1" class="accordion-toggle ">
-                              <td>10.05.2017</td>
-                              <td>MASSAGGIO schiena</td>
-                              <td>usato loreal</td>
-                              <td>colore rosso</td>
-                              <td>il cliente preferisce il verde</td>
-                              <td><button type="button" data-toggle="modal" data-target="#edit" data-uid="1" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></td>
-                              <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td>
+                              <td><%= lead['city'] %></td>
+                              <td><%= lead['state'] %></td>
+                              <td><%= lead['zip_code'] %></td>
+                              <td><%= lead['address'] %></td>
+                              <td><%= lead['net_worth'] %></td>
+                              <td><%= lead['assets'] %></td>
+                              <td><%= lead['partners'] %></td>
+                              <td><%= lead['interested'] %></td>
+                              <td><%= lead['background'] %></td>
+                              <!-- <td><button type="button" data-toggle="modal" data-target="#edit" data-uid="1" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></td>
+                              <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span></button></td> -->
                             </tr>
                             
                             <tr>
@@ -456,28 +455,41 @@ url('http://franconnect.com/wp-content/uploads/avia_fonts/mmitcicons2/mmitcicons
                         <table class="table table-hover">
                           <thead>
                             <tr>
-                              <th>Data</th>
-                              <th>Servizio</th>
-                              <th>Modifica</th>
+                              <th>Task Name</th>
+                              <th>Task Description</th>
+                              <th>Additional Information</th>
+                              <th>Document</th>
+                              <th>Status</th>
+                              <th>Mark As Complete</th>
                             </tr>
                           </thead>
                           <tbody id="items">
+                              <% for(var i=0;i<tasks.length; i++) { %>
                             <tr>
-                              <td>10.05.2017</td>
-                              <td>MASSAGGIO schiena</td>
-                             
-                              <td><button type="button" data-toggle="modal" data-target="#edit" data-uid="1" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></td>
-                              
-                              
+                              <td><%= tasks[i]['name']%></td>
+                              <td><%= tasks[i]['description']%></td>
+                              <td><%= tasks[i]['additional_information']%></td>
+                              <td><%if(tasks[i]['lead_id'] == lead['id']) { %>
+                                  <%= tasks[i]['document']%>
+                                  <% }%>
+                              </td>
+                              <td>
+                                    <%if(tasks[i]['lead_id'] == lead['id']) { %>
+                                  <%= tasks[i]['status']%>
+                                  <% } %>
+                              </td>
+                              <td>
+                                  <a type="button" href="/tasks/<%= tasks[i]['id']%>/<%= lead['id']%>" data-toggle="modal" data-target="#edit" data-uid="1" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span>
+                                  </a>
+                              </td>
                             </tr>
+                            <% }%>
                           </tbody>
                         </table>
                         </div>
                        
                      </div><!--/tab-pane-->
                      <div class="tab-pane" id="settings">
-                            
-                           
                           <hr>
                           <form class="form" action="##" method="post" id="registrationForm">
                               <div class="form-group">
@@ -545,7 +557,7 @@ url('http://franconnect.com/wp-content/uploads/avia_fonts/mmitcicons2/mmitcicons
 </div>
 <div id='divider' class='avia-section main_color avia-section-no-padding avia-no-border-styling avia-bg-style-scroll  avia-builder-el-8  el_after_av_section  el_before_av_section  av-minimum-height av-minimum-height-custom container_wrap fullsize' style = 'background-repeat: no-repeat; background-image: url(http://franconnect.com/wp-content/uploads/2016/10/bg-footer.png); background-attachment: scroll; background-position: center center; ' data-section-bg-repeat='no-repeat' ><div class='container' style='height:9px'><div class='template-page content  av-content-full alpha units'><div class='post-entry post-entry-type-page post-entry-154'><div class='entry-content-wrapper clearfix'>
 </div></div></div><!-- close content main div --></div></div>
-<div id='contact-testimonials' class='avia-section main_color avia-section-default avia-no-shadow av-parallax-section av-section-color-overlay-active avia-bg-style-parallax  avia-builder-el-9  el_after_av_section  avia-builder-el-last  av-minimum-height av-minimum-height-custom container_wrap fullsize' style = 'background-image: url(/wp-content/uploads/2016/10/contact-franconnect-franchise-software-sm.jpg);' data-section-bg-repeat='no-repeat' >
+<div id='contact-testimonials' class='avia-section main_color avia-section-default avia-no-shadow av-parallax-section av-section-color-overlay-active avia-bg-style-parallax  avia-builder-el-9  el_after_av_section  avia-builder-el-last  av-minimum-height av-minimum-height-custom container_wrap fullsize'  data-section-bg-repeat='no-repeat' >
     <div class='av-parallax' data-avia-parallax-ratio='0.3' >
     <div class='av-parallax-inner main_color  avia-full-stretch' style = 'background-repeat: no-repeat; background-image: url(http://franconnect.com/wp-content/uploads/2016/10/contact-franconnect-franchise-software.jpg); background-attachment: scroll; background-position: bottom center; ' ></div>
     </div>
