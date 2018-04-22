@@ -255,7 +255,7 @@ url('http://franconnect.com/wp-content/uploads/avia_fonts/mmitcicons2/mmitcicons
               <% if(tasks[i]['document']) { %>
                 <span><%= tasks[i]['document'] %></span>
                 <% } else { %>
-              <form method="post" action="/leads/add-document/<%= lead['id'] %>"><input type="file" name="document" required/><button type="submit" style="margin: 4px;"><img width="22px" height="22px" src="/img/upload-icon.png"/></button></form>
+              <form method="post" action="/leads/add-document/<%= lead['id'] %>" enctype='multipart/form-data'><input type="file" name="document" required/><button type="submit" style="margin: 4px;"><img width="22px" height="22px" src="/img/upload-icon.png"/></button></form>
               <% } %>
           </td>
           <td><%= tasks[i]['status'] %></td>

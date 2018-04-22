@@ -48,10 +48,16 @@ router.get('/:lead_id',function(req,res){
 
   con.query('SELECT * from leads WHERE id=? AND user_id=?',[req.params.lead_id,user_id],function(err,lead){
     if(err) throw err;
-    con.query('SELECT tasks.id,tasks.name,tasks.description,tasks.additional_information,tasks.franchisor_id,lead_tasks.lead_id,lead_tasks.task_id,lead_tasks.status,lead_tasks.document FROM tasks LEFT JOIN lead_tasks ON tasks.id=lead_tasks.task_id WHERE tasks.franchisor_id=?',[user_id],function(err,tasks){
+    //SELECT tasks.id,tasks.name,tasks.description,tasks.additional_information,tasks.franchisor_id,lead_tasks.lead_id,lead_tasks.task_id,lead_tasks.status,lead_tasks.document FROM tasks LEFT JOIN lead_tasks ON tasks.id=lead_tasks.task_id WHERE tasks.franchisor_id=?
+    con.query('SELECT * FROM tasks WHERE franchisor_id',[user_id],function(err,tasks){
       if(err) throw err;
-      console.log(tasks);
-      res.render('leadDetails',{title:"Lead Details",lead:lead[0],tasks: tasks});
+      //console.log(tasks);
+      con.query('SELECT * FROM lead_tasks WHERE lead_id=?',[req.params.lead_id],function(err,ltasks){
+        if(err) throw err;
+        console.log(ltasks);
+        res.render('leadDetails',{title:"Lead Details",lead:lead[0],tasks: tasks,ltasks:ltasks});
+      });
+     
 
     });
     

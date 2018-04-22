@@ -469,14 +469,11 @@ url('http://franconnect.com/wp-content/uploads/avia_fonts/mmitcicons2/mmitcicons
                               <td><%= tasks[i]['name']%></td>
                               <td><%= tasks[i]['description']%></td>
                               <td><%= tasks[i]['additional_information']%></td>
-                              <td><%if(tasks[i]['lead_id'] == lead['id']) { %>
-                                  <%= tasks[i]['document']%>
-                                  <% }%>
+                              <td>
+                                  
                               </td>
                               <td>
-                                    <%if(tasks[i]['lead_id'] == lead['id']) { %>
-                                  <%= tasks[i]['status']%>
-                                  <% } %>
+
                               </td>
                               <td>
                                   <a type="button" href="/tasks/<%= tasks[i]['id']%>/<%= lead['id']%>" data-toggle="modal" data-target="#edit" data-uid="1" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span>
