@@ -470,10 +470,18 @@ url('http://franconnect.com/wp-content/uploads/avia_fonts/mmitcicons2/mmitcicons
                               <td><%= tasks[i]['description']%></td>
                               <td><%= tasks[i]['additional_information']%></td>
                               <td>
-                                  
+                                  <% for(var j=0;j<ltasks.length;j++) { %>
+                                      <% if(ltasks[j]['task_id']==tasks[i]['id']) { %>
+                                        <%= ltasks[j]['document'] %>
+                                      <% } %>
+                                   <% } %>
                               </td>
                               <td>
-
+                                    <% for(var j=0;j<ltasks.length;j++) { %>
+                                        <% if(ltasks[j]['task_id']==tasks[i]['id']) { %>
+                                            <%= ltasks[j]['status'] %>
+                                        <% } %>
+                                    <% } %>
                               </td>
                               <td>
                                   <a type="button" href="/tasks/<%= tasks[i]['id']%>/<%= lead['id']%>" data-toggle="modal" data-target="#edit" data-uid="1" class="update btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span>

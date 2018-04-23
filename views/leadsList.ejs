@@ -233,7 +233,7 @@ url('http://franconnect.com/wp-content/uploads/avia_fonts/mmitcicons2/mmitcicons
             <div class='entry-content-wrapper clearfix'>
 <div class='flex_column_table av-equal-height-column-flextable' >
     <div class="flex_column av_two_third  flex_column_table_cell av-equal-height-column av-align-top av-zero-column-padding first  avia-builder-el-1  el_before_av_one_third  avia-builder-el-first  " style='border-radius:0px; '>
-        <div style='padding-bottom:0px;color:#1a2d5d;font-size:28px;' class='av-special-heading av-special-heading-h1 custom-color-heading blockquote modern-quote  avia-builder-el-2  el_before_av_codeblock  avia-builder-el-first   av-inherit-size'><h1 class='av-special-heading-tag'  itemprop="headline"  >Fill In The Tasks</h1><div class='special-heading-border'><div class='special-heading-inner-border' style='border-color:#1a2d5d'></div></div></div>
+        <div style='padding-bottom:0px;color:#1a2d5d;font-size:28px;' class='av-special-heading av-special-heading-h1 custom-color-heading blockquote modern-quote  avia-builder-el-2  el_before_av_codeblock  avia-builder-el-first   av-inherit-size'><h1 class='av-special-heading-tag'  itemprop="headline"  >List Of Leads</h1><div class='special-heading-border'><div class='special-heading-inner-border' style='border-color:#1a2d5d'></div></div></div>
 <section class="avia_codeblock_section avia_code_block_0"  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class='avia_codeblock '  itemprop="text" > 
 
     <table style="text-align:left; border:1px; width:75%" id="input_table">
@@ -248,9 +248,9 @@ url('http://franconnect.com/wp-content/uploads/avia_fonts/mmitcicons2/mmitcicons
           <% for(var i=0;i<leads.length;i++){ %>
         <tr>
           <td><%= leads[i]['first_name'] %></td>
-          <td><%= leads[i]['last_name'] %></input></td>
-          <td><%= leads[i]['email'] %></input></td>
-          <td><%= leads[i]['phone_numer'] %></input></td>
+          <td><%= leads[i]['last_name'] %></td>
+          <td><%= leads[i]['email'] %></td>
+          <td><%= leads[i]['phone_numer'] %></td>
           <td><a href="/leads/<%= leads[i]['id']%>">Details</a></td>
         </tr>
         <% }  %>

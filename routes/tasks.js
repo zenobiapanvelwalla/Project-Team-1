@@ -1,17 +1,52 @@
 var express = require('express');
 var router = express.Router();
 var con = require('../connection_pool');
+var path = require('path');
+var file_path = "";
 
+var multer = require('multer'); //for saving files on server 
+var storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+        cb(null, path.resolve('./public')+'/documents/')
+    },
+    filename: function(req, file, cb) {
+        let ext = file.originalname.substring(file.originalname.lastIndexOf('.'), file.originalname.length);
+        file_path = "/documents/"+file.fieldname+'_'+Date.now()+ext;
+        cb(null, file.fieldname+'_'+Date.now()+ext);
+    }
+});
+var upload = multer({ storage: storage, dest: 'documents/' });
 
-/* GET home page. */
-// router.get('/', function(req, res, next) {
-//   res.render('tasks', { title: 'Express' });
-// });
 
 router.post('/', function(req, res, next) {
+  
   let user_id = 1;
   console.log(req.body);
-  res.write(req.body);
+  if(Array.isArray(req.body.task_name)){
+  for(var i=0;i<req.body.task_name.length;i++){
+  con.query('INSERT INTO tasks(name,description,additional_information,franchisor_id) VALUES(?,?,?,?)',[
+    req.body.task_name[i],
+    req.body.task_description[i],
+    req.body.addl_info[i],
+    franchisor_id = user_id
+  ],function(err,result){
+    if(err) throw err;
+    
+  });
+  }
+} else {
+  con.query('INSERT INTO tasks(name,description,additional_information,franchisor_id) VALUES(?,?,?,?)',[
+    req.body.task_name,
+    req.body.task_description,
+    req.body.addl_info,
+    franchisor_id = user_id
+  ],function(err,result){
+    if(err) throw err;
+    
+  });
+}
+
+res.redirect('/tasks'); 
 });
 
 router.get('/',function(req,res,next){
@@ -40,5 +75,34 @@ router.get('/:task_id/:lead_id',function(req, res){
     }
   }); 
 });
+
+router.post('/add-document/:lead_id/:task_id',upload.single('document'),function(req,res){
+  console.log("I am here");
+  lead_id = req.params.lead_id;
+  task_id = req.params.task_id;
+  console.log(file_path);
+
+  con.query('SELECT * FROM lead_tasks WHERE lead_id=? AND task_id=?',[lead_id,task_id],function(err,result){
+    if(err) throw err;
+    if(result.length>0){
+      con.query('UPDATE lead_tasks SET document=? WHERE lead_id=? AND task_id=?',[file_path,lead_id,task_id],function(err,result){
+        if(err) throw err;
+        console.log(result);
+        res.redirect('/leads/tasks/'+lead_id);
+      });
+    } else{
+      con.query('INSERT INTO lead_tasks(lead_id,task_id,document) VALUES(?,?,?)',[lead_id,task_id,file_path],function(err,result){
+        if(err) throw err;
+        console.log(result);
+        res.redirect('/leads/tasks/'+lead_id);
+      });
+    }
+  });
+  
+});
+
+
+
+
 
 module.exports = router;

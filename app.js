@@ -8,13 +8,16 @@ var logger = require('morgan');
 var session = require('express-session');
 var passport = require('passport');
 
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var leads = require('./routes/leads');
 var tasksRouter = require('./routes/tasks');
+var add_doc = require('./routes/add-document');
 
 
 var app = express();
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -40,10 +43,13 @@ app.use('/users', usersRouter);
 app.use('/leads', leads);
 app.use('/tasks', tasksRouter);
 
-// catch 404 and forward to error handler
+
+
+ // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
 
 // error handler
 app.use(function(err, req, res, next) {

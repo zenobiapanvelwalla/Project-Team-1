@@ -239,7 +239,7 @@ url('http://franconnect.com/wp-content/uploads/avia_fonts/mmitcicons2/mmitcicons
     function addrow(){
       //alert('Hi');
       var trow = document.createElement("tr");
-      trow.innerHTML = "<td><input type='text' name='task_name'></input></td><td><input type='text' name='task_description'></input></td><td><input type='text' name='addl_info'></input></td><td><input type='file'></input></td><td></td>";
+      trow.innerHTML = "<td><input type='text' name='task_name'></input></td><td><input type='text' name='task_description'></input></td><td><input type='text' name='addl_info'></input></td><td></td>";
       document.getElementById("input_table").appendChild(trow);
     }
   </script>
@@ -250,7 +250,7 @@ url('http://franconnect.com/wp-content/uploads/avia_fonts/mmitcicons2/mmitcicons
         <th style="width:20%">Task Name</th>
         <th style="width:30%">Task Description</th>
         <th style="width:30%">Additional Information</th>
-        <th style="width:15%">Attachments</th>
+        <!-- <th style="width:15%">Attachments</th> -->
         <th style="width:5%"></th>
       </thead>
       <tbody>
@@ -258,7 +258,7 @@ url('http://franconnect.com/wp-content/uploads/avia_fonts/mmitcicons2/mmitcicons
           <td><input type="text" name="task_name"></input></td>
           <td><input type="text" name="task_description"></input></td>
           <td><input type="text" name="addl_info"></input></td>
-          <td><input type="file"></input></td>
+          <!-- <td><input type="file"></input></td> -->
           <td><img onclick="addrow()" src="/img/add-icon.png" height=30px width=30px></td>
         </tr>
       </tbody>
