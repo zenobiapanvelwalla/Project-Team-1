@@ -472,7 +472,7 @@ url('http://franconnect.com/wp-content/uploads/avia_fonts/mmitcicons2/mmitcicons
                               <td>
                                   <% for(var j=0;j<ltasks.length;j++) { %>
                                       <% if(ltasks[j]['task_id']==tasks[i]['id']) { %>
-                                        <%= ltasks[j]['document'] %>
+                                        <a target="_blank" href="<%= ltasks[j]['document'] %>" download><%= ltasks[j]['document_name'] %></a>
                                       <% } %>
                                    <% } %>
                               </td>

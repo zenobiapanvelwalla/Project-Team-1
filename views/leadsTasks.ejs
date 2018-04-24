@@ -253,15 +253,11 @@ url('http://franconnect.com/wp-content/uploads/avia_fonts/mmitcicons2/mmitcicons
           <td><%= tasks[i]['additional_information'] %></td>
           <td>
                 <% for(var j=0;j<ltasks.length;j++) { %>
-                        <% if(ltasks[j]['task_id']==tasks[i]['id']) { %>
-                            <% if(ltasks[j]['document']) { %>
-                                <span><%= ltasks[i]['document'] %></span>
-                                <% } else { %>
-                              <form method="post" action="/tasks/add-document/<%= lead['id'] %>/<%= tasks[i]['id'] %>" enctype='multipart/form-data'><input type="file" name="document" required/><button type="submit" style="margin: 4px;"><img width="22px" height="22px" src="/img/upload-icon.png"/></button></form>
-                              <% } %>
-                        <% } %>
+                    <% if(ltasks[j]['task_id']==tasks[i]['id']) { %>
+                        <%= ltasks[j]['document_name'] %>
                     <% } %>
-              
+                <% } %>
+                <form method="post" action="/tasks/add-document/<%= lead['id'] %>/<%= tasks[i]['id'] %>" enctype='multipart/form-data'><input type="file" name="document" required/><button type="submit" style="margin: 4px; color: white; background: none; border: none"><img width="22px" height="22px" src="/img/upload-icon.png"/></button></form>
           </td>
           <td>
             <% for(var j=0;j<ltasks.length;j++) { %>
