@@ -12,6 +12,9 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var leads = require('./routes/leads');
 var tasksRouter = require('./routes/tasks');
+var signUpFranchsior = require('./routes/signUpFranchsior');
+var login = require('./routes/login');
+var signUpFranchisee = require('./routes/signUpFranchisee');
 
 var app = express();
 
@@ -38,7 +41,9 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/leads', leads);
 app.use('/tasks', tasksRouter);
-
+app.use('/signUpFranchsior',signUpFranchsior);
+app.use('/login',login);
+app.use('/signUpFranchisee',signUpFranchisee)
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
