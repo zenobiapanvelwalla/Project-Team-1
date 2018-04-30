@@ -8,15 +8,22 @@ var logger = require('morgan');
 var session = require('express-session');
 var passport = require('passport');
 
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var leads = require('./routes/leads');
 var tasksRouter = require('./routes/tasks');
+<<<<<<< HEAD
 var signUpFranchsior = require('./routes/signUpFranchsior');
 var login = require('./routes/login');
 var signUpFranchisee = require('./routes/signUpFranchisee');
+=======
+var add_doc = require('./routes/add-document');
+
+>>>>>>> 8727c8d4b8fb2b5c9bda46b9ac656a991031f6f0
 
 var app = express();
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -41,13 +48,21 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/leads', leads);
 app.use('/tasks', tasksRouter);
+<<<<<<< HEAD
 app.use('/signUpFranchsior',signUpFranchsior);
 app.use('/login',login);
 app.use('/signUpFranchisee',signUpFranchisee)
 // catch 404 and forward to error handler
+=======
+
+
+
+ // catch 404 and forward to error handler
+>>>>>>> 8727c8d4b8fb2b5c9bda46b9ac656a991031f6f0
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
 
 // error handler
 app.use(function(err, req, res, next) {
