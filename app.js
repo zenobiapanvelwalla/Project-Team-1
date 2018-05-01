@@ -2,6 +2,7 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
+var flash = require('connect-flash');
 var cookieParser = require('cookie-parser');
 var bodyParese = require('body-parser');
 var logger = require('morgan');
@@ -37,6 +38,12 @@ app.use(session({
   saveUninitialized: false,
   //cookie: { secure: true } //this is for https
 }));
+app.use(flash());
+app.use(function(req,res,next){
+  res.locals.error_msg = req.flash('error_msg');
+  next();
+});
+
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -54,7 +61,23 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
+app.get('/chartData', function (req, res) {
 
+  var sql = `SELECT * FR WHERE UserId = ${UserId}`;
+  var query = connection.query(sql,(error, results) => {
+      if(error) throw error;
+      console.log(results);
+      if(results != undefined)
+      {res.send({data:'Fund Added'});
+          req.session.UserId = req.body.UserId;
+          
+      }
+          else{
+              res.send('Invalid');
+          }
+  });
+  res.send(req.params)
+})
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development

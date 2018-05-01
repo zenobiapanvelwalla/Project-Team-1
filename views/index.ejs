@@ -8,6 +8,8 @@
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
 		<style>
 		body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 		body, html {
@@ -58,7 +60,11 @@
 			<br>
 			<form action='/users/login' method="post">
 				<p><input class='w3-input w3-border' type='text' placeholder='Email' required name='email'></p>
-				<p><input class='w3-input w3-border' type='password' placeholder='Password' required name='pwd'></p>
+				<p><input class='w3-input w3-border' type='password' placeholder='Password' required name='password'></p>
+				<p><select class='w3-input w3-border' name="user_type">
+					<option value="franchisor">Franchisor</option>
+					<option value="franchisee">Franchisee</option>
+				</select></p>
 				<p><button class='w3-button w3-blue' type='submit'><i class='fa fa-sign-in'></i> SIGN IN</button>
 				<button class='w3-button w3-green' onclick="document.getElementById('login-modal').style.display='none'; document.getElementById('registration-modal').style.display='block';"><i class='fa fa-user'></i> REGISTER</button></p>
 			</form>
@@ -96,6 +102,7 @@
 				<p><button class='w3-button w3-green' type='submit'><i class='fa fa-user'></i> REGISTER</button>
 			</form>
 		</div>
+		
 	</div>
 
 
@@ -114,7 +121,12 @@
 	  <div class="w3-display-left w3-text-white" style="padding:48px">
 	    <span class="w3-jumbo w3-hide-small w3-black w3-opacity-min">Franchisee Management</span><br>
 	    <span class="w3-xxlarge w3-hide-large w3-hide-medium w3-black w3-opacity-min">End to end solution for managing your franchisees</span><br>
-	    <p><a href="#contact" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Learn more and start today</a></p>
+			<p><a href="#contact" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Learn more and start today</a></p>
+			<p>
+					<% if (error!=null) { %>
+						<div class="alert alert-danger" role=""alert><%= error %></div>
+					<% } %>
+			</p>
 	  </div>
 	  <div class="w3-display-bottomleft w3-text-grey w3-large" style="padding:24px 48px">
 	    <a href="http://www.fb.com"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>
