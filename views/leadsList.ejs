@@ -9,7 +9,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <!-- Scripts/CSS and wp_head hook -->
-<title><%= title %></title>
+<title>LEMUR - LEad Management Update and Report</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+		<style>
+		body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+		body, html {
+		    height: 100%;
+		    line-height: 1.8;
+		}
+		/* Full height image header */
+		.bgimg-1 {
+		    background-position: center;
+		    background-size: cover;
+		    background-image: url("/img/banner.jpg");
+		    min-height: 100%;
+		}
+		.w3-bar .w3-button {
+		    padding: 16px;
+		}
+		</style>
 
 <!-- This site is optimized with the Yoast SEO Premium plugin v3.7.2 - https://yoast.com/wordpress/plugins/seo/ -->
 <meta name="description" content="Franchise Management Software and Solutions for Franchisors. With 600+ brands including multi-unit operators &amp; area developers. Contact us for a demo."/>
@@ -158,15 +181,7 @@ url('http://franconnect.com/wp-content/uploads/avia_fonts/mmitcicons2/mmitcicons
 <header id='header' class='all_colors header_color light_bg_color  av_header_top av_logo_left av_main_nav_header av_menu_right av_slim av_header_sticky av_header_shrinking_disabled av_header_stretch_disabled av_mobile_menu_tablet av_header_searchicon_disabled av_header_unstick_top_disabled av_minimal_header av_bottom_nav_disabled  av_header_border_disabled'  role="banner" itemscope="itemscope" itemtype="https://schema.org/WPHeader" >
 
 <a id="advanced_menu_toggle" href="#" aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello'></a><a id="advanced_menu_hide" href="#" 	aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello'></a>
-<div  id='header_main' class='container_wrap container_wrap_logo'>
 
-        <div class='container av-logo-container'>
-            <div class='inner-container'>
-                <span class='logo'><a href='http://franconnect.com/'><img height='100px' width='100px' src='/img/lemur-logo.jpg' alt='FranConnect' /></a>
-                </span>
-                <nav class='main_menu' data-selectname='Select a page'  role="navigation" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement" >
-                <div class="avia-menu av-main-nav-wrap">
-                <ul id="avia-menu" class="menu av-main-nav">
                     <!-- <li id="menu-item-955" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-top-level menu-item-top-level-1"><a href="http://franconnect.com/franchise-software/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Franchise Software</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a>
 
 
@@ -203,18 +218,29 @@ url('http://franconnect.com/wp-content/uploads/avia_fonts/mmitcicons2/mmitcicons
 	<li id="menu-item-378" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://franconnect.com/careers/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Careers</span></a></li>
 </ul>
 </li> -->
-<li id="menu-item-481" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-154 current_page_item menu-item-top-level menu-item-top-level-4"><a href="/tasks" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Task Manager</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
-<li id="menu-item-439" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-154 current_page_item menu-item-top-level menu-item-top-level-4"><a href="/leads" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Home</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
-<li id="menu-item-240" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-154 current_page_item menu-item-top-level menu-item-top-level-4"><a href="#" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Dashboard</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
-
-
-<li id="menu-item-990" class="demo menu-item menu-item-type-post_type menu-item-object-page page_item page-item-154 current_page_item menu-item-top-level menu-item-top-level-5" ><a href="#" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text" style="color:white;">Logout</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
-                </ul>
-                </div>
-                </nav>
-            </div>
+<div  id='header_main' class='container_wrap container_wrap_logo'>
+    <div class="w3-top">
+        <div class="w3-bar w3-white w3-card" id="myNavbar">
+          <a href="#home" class="w3-bar-item w3-button w3-wide">
+                  <img src="/img/lemur-logo.jpg" class="w3-image" style="height:100%; max-height:60px">
+                  LEMUR
+              </a>
+          <!-- Right-sided navbar links -->
+          <div class="w3-right w3-hide-small">
+                  <a href="#home" class="w3-bar-item w3-button">Home</a>
+            <a href="#about" class="w3-bar-item w3-button">DashBoard</a>
+            <a href="#team" class="w3-bar-item w3-button">Task Manager</a>
+            
+                  <a onclick="showLoginPrompt()" class="w3-bar-item w3-button"><i class="fa fa-sign-out"></i> SIGN OUT</a>
+          </div>
+          <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+  
+          <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+            <i class="fa fa-bars"></i>
+          </a>
         </div>
-		<!-- end container_wrap-->
+      </div>
+       <!-- end container_wrap-->
 </div>
 
 <div class='header_bg'></div>
