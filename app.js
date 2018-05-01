@@ -14,7 +14,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var leads = require('./routes/leads');
 var tasksRouter = require('./routes/tasks');
-
+var chartData = require('./routes/chartData')
 var login = require('./routes/login');
 
 var dashboard = require('./routes/dashboard');
@@ -51,7 +51,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/leads', leads);
 app.use('/tasks', tasksRouter);
-
+app.use('/chartData',chartData);
 app.use('/login',login);
 
 app.use('/dashboard',dashboard);
@@ -61,23 +61,7 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
-app.get('/chartData', function (req, res) {
 
-  var sql = `SELECT * FR WHERE UserId = ${UserId}`;
-  var query = connection.query(sql,(error, results) => {
-      if(error) throw error;
-      console.log(results);
-      if(results != undefined)
-      {res.send({data:'Fund Added'});
-          req.session.UserId = req.body.UserId;
-          
-      }
-          else{
-              res.send('Invalid');
-          }
-  });
-  res.send(req.params)
-})
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
