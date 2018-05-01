@@ -7,6 +7,10 @@ var bcrypt = require('bcryptjs');
 var passport = require('passport');
 var LocalStrategy =  require('passport-local').Strategy;
 const saltRounds = 10;
+if (typeof localStorage === "undefined" || localStorage === null) {
+  var LocalStorage = require('node-localstorage').LocalStorage;
+  localStorage = new LocalStorage('./scratch');
+}
  
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -105,6 +109,7 @@ router.post('/login',function(req,res,next){
      if(user.length>0){
       var user_id = user[0]['id'];
       req.session.user_id = user_id;
+      localStorage.setItem('user_id',user_id);
       console.log(req.session.user_id);
       con.query('SELECT * FROM leads WHERE user_id=?',[user_id],function(err,leads){
         if(err) throw err;
@@ -122,7 +127,7 @@ router.post('/login',function(req,res,next){
     con.query('SELECT * FROM leads WHERE email=? AND frankey=?',[req.body.email,req.body.password],function(err,lead){
       if(err) throw err;
       if(lead.length>0){
-        
+        localStorage.setItem('lead_id',lead[0]['id']);
         res.redirect('/leads/tasks/'+lead[0]['id']);
       } else{
         res.render('index',{error:"User Not found"});

@@ -32,7 +32,7 @@ router.post('/', function(req, res, next) {
 
 router.get('/',function(req,res,next){
   //user_id = req.session.user_id;
-  var user_id = req.session.user_id;
+  var user_id = localStorage.getItem('user_id');
   con.query('SELECT * FROM leads WHERE user_id=?',[user_id],function(err,leads){
     if(err) throw err;
     res.render('leadsList',{title:"Home",leads:leads});

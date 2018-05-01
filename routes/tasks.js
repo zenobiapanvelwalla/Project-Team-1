@@ -22,7 +22,8 @@ var upload = multer({ storage: storage, dest: 'documents/' });
 
 router.post('/', function(req, res, next) {
   
-  let user_id = req.session.user_id;
+  //let user_id = req.session.user_id;
+  let user_id = localStorage.getItem("user_id");
   console.log("fran id",user_id);
   console.log(req.body);
   if(Array.isArray(req.body.task_name)){
@@ -53,7 +54,18 @@ res.redirect('/tasks');
 });
 
 router.get('/',function(req,res,next){
-  res.render('tasksCopy',{title:"Add Tasks"});
+  let franchisor_id = localStorage.getItem("user_id");
+  console.log(franchisor_id);
+  con.query('SELECT * FROM tasks WHERE franchisor_id=?',[franchisor_id],function(err,ready_tasks){
+    if(err) throw err;
+    if(ready_tasks.length>0){
+      console.log(ready_tasks);
+      res.render('tasksCopy',{title:"Add Tasks",ready_tasks:ready_tasks});
+    } else {
+      res.render('tasksCopy',{title:"Add Tasks",ready_tasks:""});
+    }
+  });
+  
 });
 
 //if the lead has uploaded a document then the lead_tasks row exists and it's status can be set to completed. 

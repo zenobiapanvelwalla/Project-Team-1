@@ -230,6 +230,7 @@ url('http://franconnect.com/wp-content/uploads/avia_fonts/mmitcicons2/mmitcicons
       var trow = document.createElement("tr");
       trow.innerHTML = "<td><input type='text' name='task_name'></input></td><td><input type='text' name='task_description'></input></td><td><input type='text' name='addl_info'></input></td><td></td>";
       document.getElementById("input_table").appendChild(trow);
+      
     }
   </script>
 
@@ -243,6 +244,16 @@ url('http://franconnect.com/wp-content/uploads/avia_fonts/mmitcicons2/mmitcicons
         <th style="width:5%"></th>
       </thead>
       <tbody>
+        <% if(ready_tasks) {%>
+        <% for(var i=0;i<ready_tasks.length;i++){ %>          
+        <tr>
+            <td><%= ready_tasks[i]['name'] %></td>
+            <td><%= ready_tasks[i]['description'] %></td>
+            <td><%= ready_tasks[i]['additional_information'] %></td>
+            <td></td>
+        </tr>
+        <% } %>
+        <% } %>
         <tr>
           <td><input type="text" name="task_name"></input></td>
           <td><input type="text" name="task_description"></input></td>
