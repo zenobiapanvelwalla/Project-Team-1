@@ -44,7 +44,7 @@ router.get('/',function(req,res,next){
 
 router.get('/:lead_id',function(req,res){
   //user_id = req.session.user_id;
-  user_id = req.session.user_id;
+  user_id = localStorage.getItem("user_id");
 
   con.query('SELECT * from leads WHERE id=? AND user_id=?',[req.params.lead_id,user_id],function(err,lead){
     if(err) throw err;
