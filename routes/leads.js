@@ -34,9 +34,10 @@ router.post('/', function(req, res, next) {
 router.get('/',function(req,res,next){
   //user_id = req.session.user_id;
   var user_id = localStorage.getItem('user_id');
+  var company_name = localStorage.getItem('company_name');
   con.query('SELECT * FROM leads WHERE user_id=?',[user_id],function(err,leads){
     if(err) throw err;
-    res.render('leadsList',{title:"Home",leads:leads});
+    res.render('leadsList',{title:"Home",leads:leads,company_name:company_name});
   });
 
   //res.render('leadsList',{title:"Home",leads:leads});
@@ -45,7 +46,9 @@ router.get('/',function(req,res,next){
 
 router.get('/:lead_id',function(req,res){
   //user_id = req.session.user_id;
-  user_id = localStorage.getItem("user_id");
+  let user_id = localStorage.getItem("user_id");
+  let company_name = localStorage.getItem("company_name");
+  
 
   con.query('SELECT * from leads WHERE id=? AND user_id=?',[req.params.lead_id,user_id],function(err,lead){
     if(err) throw err;
@@ -56,7 +59,7 @@ router.get('/:lead_id',function(req,res){
       con.query('SELECT * FROM lead_tasks WHERE lead_id=?',[req.params.lead_id],function(err,ltasks){
         if(err) throw err;
         console.log(ltasks);
-        res.render('leadDetails',{title:"Lead Details",lead:lead[0],tasks: tasks,ltasks:ltasks});
+        res.render('leadDetails',{title:"Lead Details",lead:lead[0],tasks: tasks,ltasks:ltasks,company_name:company_name});
       });
      
 
