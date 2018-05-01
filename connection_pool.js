@@ -3,16 +3,11 @@ let mysql = require('mysql');
 function connectionPool() {
     var pool = mysql.createPool({
         connectionLimit: 100, //important
-        host: "localhost",
+        host: "fms.cbvajauho28z.us-east-1.rds.amazonaws.com",
         user: "root",
-<<<<<<< HEAD
-        password:"root",
+        password:"password",
         database:"fms"
        
-=======
-        password: "",
-        database: "fms"
->>>>>>> 8727c8d4b8fb2b5c9bda46b9ac656a991031f6f0
     });
     pool.getConnection(function(err, connection) {
         if (err) {
