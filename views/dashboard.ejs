@@ -78,6 +78,8 @@ img.emoji {
 	padding: 0 !important;
 }
 </style>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 <link rel='stylesheet' id='essential-grid-plugin-settings-css'  href='http://franconnect.com/wp-content/plugins/essential-grid/public/assets/css/settings.css?ver=2.1.0.2' type='text/css' media='all' />
 <link rel='stylesheet' id='tp-open-sans-css'  href='http://fonts.googleapis.com/css?family=Open+Sans%3A300%2C400%2C600%2C700%2C800&#038;ver=4.8' type='text/css' media='all' />
 <link rel='stylesheet' id='tp-raleway-css'  href='http://fonts.googleapis.com/css?family=Raleway%3A100%2C200%2C300%2C400%2C500%2C600%2C700%2C800%2C900&#038;ver=4.8' type='text/css' media='all' />
@@ -172,7 +174,7 @@ url('http://franconnect.com/wp-content/uploads/avia_fonts/mmitcicons2/mmitcicons
 
 
 
-<body id="top" class="page-template-default page page-id-154 stretched lato open_sans  do-etfw" itemscope="itemscope" itemtype="https://schema.org/WebPage" >
+<body id="top" class="page-template-default page page-id-154 stretched lato open_sans  do-etfw" itemscope="itemscope" itemtype="https://schema.org/WebPage" onload="getChartData()">
 
 	<div class='av-siteloader-wrap av-transition-enabled'><div class='av-siteloader-inner'><div class='av-siteloader-cell'><div class='av-siteloader'><div class='av-siteloader-extra'></div></div></div></div></div>
 	<div id='wrap_all'>
@@ -216,56 +218,88 @@ url('http://franconnect.com/wp-content/uploads/avia_fonts/mmitcicons2/mmitcicons
 
 
 <!-- CHRISTIE12
-/wp-content/uploads/2016/10/contact-franconnect-franchise-software-sm.jpg--><div id='contact' class='avia-section main_color avia-section-default avia-no-shadow avia-bg-style-scroll  avia-builder-el-0  el_before_av_section  avia-builder-el-first  container_wrap fullsize'   ><div class='container' >
-    <main  role="main" itemprop="mainContentOfPage"  class='template-page content  av-content-full alpha units'>
-        <div class='post-entry post-entry-type-page post-entry-154'>
-            <div class='entry-content-wrapper clearfix'>
-<div class='flex_column_table av-equal-height-column-flextable' >
-    <div class="flex_column av_two_third  flex_column_table_cell av-equal-height-column av-align-top av-zero-column-padding first  avia-builder-el-1  el_before_av_one_third  avia-builder-el-first  " style='border-radius:0px; '>
-        <div style='padding-bottom:0px;color:#1a2d5d;font-size:28px;' class='av-special-heading av-special-heading-h1 custom-color-heading blockquote modern-quote  avia-builder-el-2  el_before_av_codeblock  avia-builder-el-first   av-inherit-size'><h1 class='av-special-heading-tag'  itemprop="headline"  >Statistics</h1><div class='special-heading-border'><div class='special-heading-inner-border' style='border-color:#1a2d5d'></div></div></div>
-<section class="avia_codeblock_section avia_code_block_0"  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class='avia_codeblock '  itemprop="text" >
-    <div class="container">
-        <div id="piechart"></div>
+/wp-content/uploads/2016/10/contact-franconnect-franchise-software-sm.jpg-->
+    
 
+   
+        
+
+    <div class="container">
+            <h1 style="color:#1d3366;text-decoration:underline">Statistics</h1>
+        <div class="row">
+            
+            <div class="col-sm-6 maxheight:300px">
+                    <h3>Leads Per State</h3>
+                <canvas id="myChart" max-width="50" max-height="80"></canvas>
+            </div>
+         </div>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
         <script type="text/javascript">
             // Load google charts
-            google.charts.load('current', {'packages':['corechart']});
-            google.charts.setOnLoadCallback(drawChart);
+            function getChartData(){
+            var data_temp =[];
+            var label_temp=[];
+          
+                fetch('http://localhost:3000/chartData')
+                    .then(function(response) {
+                        return response.json();
+                    })
+                    .then(function(myJson) {
+                        console.log(myJson);
+                        for(var i =0;i<myJson.length;i++){
+                            console.log(myJson[i]);
+                            label_temp.push(myJson[i].state);
+                            data_temp.push(myJson[i].count);
+                        }
+                        
+                    }).then(function(){
+                        var ctx = document.getElementById("myChart").getContext('2d');;
+            var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: label_temp,
+                datasets: [{
+                    label: "Lead Count",
+                    data: data_temp,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
             
-            // Draw the chart and set the chart values
-            function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-            ['Task', 'Hours per Day'],
-            ['Work', 8],
-            ['Eat', 2],
-            ['TV', 4],
-            ['Gym', 2],
-            ['Sleep', 8]
-            ]);
+        });
+                    }
 
-            // Optional; add a title and set the width and height of the chart
-            var options = {'title':'My Average Day', 'width':550, 'height':400};
-
-            // Display the chart inside the <div> element with id="piechart"
-            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-            chart.draw(data, options);
-            }
+                    );
+            
+            
+            
+           }
         </script>
     </div>
    
-</div>
-</section>
-</div>
 
-</div><!--close column table wrapper. Autoclose: 1 -->
-</div>
-</div>
-</main>
-<!-- close content main element -->
-</div>
-</div>
+
+
+
+
+
+
 
 <!-- close content main div -->
     </div>
