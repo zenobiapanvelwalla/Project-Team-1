@@ -25,7 +25,7 @@ router.post('/',function(req,res,next){
 
   bcrypt.hash(password, saltRounds, function(err, hash) {
     // Store hash in your password DB.
-    con.query('INSERT INTO users (first_name,last_name,email,phone_number,city,state,country,zipcode,address,password) VALUES(?,?,?,?,?,?,?,?,?,?)',[first_name,last_name,email,phone_number,city,state,country,zipcode,address,hash],function(err, result,fields) {
+    con.query('INSERT INTO users (first_name,last_name,email,phone_number,city,state,country,zipcode,address,password,user_type) VALUES(?,?,?,?,?,?,?,?,?,?,?)',[first_name,last_name,email,phone_number,city,state,country,zipcode,address,hash],function(err, result,fields) {
       if(err) throw err;
       res.render('index',{title:'Registration Complete!'});
     });

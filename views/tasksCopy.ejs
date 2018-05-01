@@ -9,7 +9,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <!-- Scripts/CSS and wp_head hook -->
-<title><%= title %></title>
+<title>LEMUR - LEad Management Update and Report</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+		<style>
+		body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+		body, html {
+		    height: 100%;
+		    line-height: 1.8;
+		}
+		/* Full height image header */
+		.bgimg-1 {
+		    background-position: center;
+		    background-size: cover;
+		    background-image: url("/img/banner.jpg");
+		    min-height: 100%;
+		}
+		.w3-bar .w3-button {
+		    padding: 16px;
+		}
+		</style>
 
 <!-- This site is optimized with the Yoast SEO Premium plugin v3.7.2 - https://yoast.com/wordpress/plugins/seo/ -->
 <meta name="description" content="Franchise Management Software and Solutions for Franchisors. With 600+ brands including multi-unit operators &amp; area developers. Contact us for a demo."/>
@@ -159,62 +182,28 @@ url('http://franconnect.com/wp-content/uploads/avia_fonts/mmitcicons2/mmitcicons
 
 <a id="advanced_menu_toggle" href="#" aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello'></a><a id="advanced_menu_hide" href="#" 	aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello'></a>
 <div  id='header_main' class='container_wrap container_wrap_logo'>
-
-        <div class='container av-logo-container'>
-            <div class='inner-container'>
-                <span class='logo'><a href='http://franconnect.com/'><img height='100' width='100' src='/img/lemur-logo.jpg' alt='LEmur' /></a>
-                </span>
-                <nav class='main_menu' data-selectname='Select a page'  role="navigation" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement" >
-                <div class="avia-menu av-main-nav-wrap">
-                <ul id="avia-menu" class="menu av-main-nav">
-                    <!-- <li id="menu-item-955" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-top-level menu-item-top-level-1"><a href="http://franconnect.com/franchise-software/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Franchise Software</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a>
-
-
-                    <ul class="sub-menu">
-                        <li id="menu-item-453" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://franconnect.com/franchise-software/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Software Overview</span></a></li>
-                        <li id="menu-item-724" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://franconnect.com/franchise-software/info-manager/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Info Manager</span></a></li>
-                        <li id="menu-item-744" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://franconnect.com/franchise-software/field-operations/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Field Ops</span></a></li>
-                        <li id="menu-item-743" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://franconnect.com/franchise-software/franchise-royalty-management/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Finance</span></a></li>
-                        <li id="menu-item-1529" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://franconnect.com/franchise-software/insights/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Insights</span></a></li>
-                        <li id="menu-item-625" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://franconnect.com/franchise-software/sales/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Sales</span></a></li>
-                        <li id="menu-item-624" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://franconnect.com/franchise-software/opener/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Opener</span></a></li>
-                        <li id="menu-item-747" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://franconnect.com/franchise-software/hub-forum-communications/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">The Hub</span></a></li>
-                        <li id="menu-item-783" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://franconnect.com/franchise-software/training-lms/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Training</span></a></li>
-                        <li id="menu-item-276" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://franconnect.com/franchise-software/marketing-applications/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Marketing Applications</span></a></li>
-                    </ul>
-                    </li> -->
-<!-- <li id="menu-item-481" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-top-level menu-item-top-level-2"><a itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Resources</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a>
-
-
-<ul class="sub-menu">
-	<li id="menu-item-309" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="http://go.franconnect.com/success-stories" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Success Stories</span></a></li>
-	<li id="menu-item-310" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="http://go.franconnect.com/best-practices" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Best Practices</span></a></li>
-	<li id="menu-item-311" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="http://go.franconnect.com/webinars" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Webinars</span></a></li>
-	<li id="menu-item-313" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="http://go.franconnect.com/in-the-news" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">In The News</span></a></li>
-	<li id="menu-item-312" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="http://blog.franconnect.com/blog" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Blog</span></a></li>
-</ul>
-</li> -->
-<!-- <li id="menu-item-439" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-top-level menu-item-top-level-3"><a href="http://franconnect.com/about-us/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">About Us</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a>
-
-
-<ul class="sub-menu">
-	<li id="menu-item-438" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://franconnect.com/about-us/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Why Choose FranConnect</span></a></li>
-	<li id="menu-item-699" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://franconnect.com/team/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Our Team</span></a></li>
-	<li id="menu-item-378" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://franconnect.com/careers/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Careers</span></a></li>
-</ul>
-</li> -->
-<li id="menu-item-481" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-154 current_page_item menu-item-top-level menu-item-top-level-4"><a href="/tasks" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Task Manager</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
-<li id="menu-item-439" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-154 current_page_item menu-item-top-level menu-item-top-level-4"><a href="/leads" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Home</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
-<li id="menu-item-240" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-154 current_page_item menu-item-top-level menu-item-top-level-4"><a href="/dashboard" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Dashboard</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
-
-
-<li id="menu-item-990" class="demo menu-item menu-item-type-post_type menu-item-object-page page_item page-item-154 current_page_item menu-item-top-level menu-item-top-level-5" ><a href="#" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text" style="color:white;">Logout</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
-                </ul>
-                </div>
-                </nav>
-            </div>
+    <div class="w3-top">
+        <div class="w3-bar w3-white w3-card" id="myNavbar">
+          <a href="/leads" class="w3-bar-item w3-button w3-wide">
+                  <img src="/img/lemur-logo.jpg" class="w3-image" style=" max-height:20px">
+                  LEMUR
+              </a>
+          <!-- Right-sided navbar links -->
+          <div class="w3-right w3-hide-small">
+                  <a href="/leads" class="w3-bar-item w3-button">Home</a>
+            <a href="/dashnoard" class="w3-bar-item w3-button">DashBoard</a>
+            <a href="/tasks" class="w3-bar-item w3-button">Task Manager</a>
+            
+                  <a onclick="showLoginPrompt()" class="w3-bar-item w3-button"><i class="fa fa-sign-out"></i> SIGN OUT</a>
+          </div>
+          <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+  
+          <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+            <i class="fa fa-bars"></i>
+          </a>
         </div>
-		<!-- end container_wrap-->
+      </div>
+       <!-- end container_wrap-->
 </div>
 
 <div class='header_bg'></div>
@@ -289,7 +278,7 @@ url('http://franconnect.com/wp-content/uploads/avia_fonts/mmitcicons2/mmitcicons
 <div class='av-section-color-overlay-wrap'>
     <div class='av-section-color-overlay' style='opacity: 0.7; background-color: #000000; '></div>
 <div class='container' style='height:275px'><div class='template-page content  av-content-full alpha units'><div class='post-entry post-entry-type-page post-entry-154'><div class='entry-content-wrapper clearfix'>
-<section class="av_textblock_section"  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class='avia_textblock '   itemprop="text" ><div id="testimonial"><div class="bx-slideshow"><div><div class="quote">“FranConnect is a one-stop tool that allows me to efficiently manage my entire sales process. It’s helping us meet our business goals.”</div><div class="author">Tony Padulo | Executive VP Franchise Development | BrightStar Care</div></div><div><div class="quote">"FranConnect enables us to effectively monitor and improve our system engagement on an ongoing basis.”</div><div class="author">John Rotche | Managing Director and CEO | FranWorth</div></div><div><div class="quote">“By using FranConnect, we’ve seen an increase in prospect engagement and we’re moving them more quickly through the entire sales process.”</div><div class="author">Aaron Goldberg | VP Franchise Development | Zips Dry Cleaning</div></div><div><div class="quote">“FranConnect is the most complete solution that addresses the key components all franchisors need. It enhances our productivity in our day-to-day operations.”</div><div class="author">Mike Bidwell | President and CEO | The Dwyer Group</div></div></div></div>
+<section class="av_textblock_section"  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class='avia_textblock '   itemprop="text" ><div id="testimonial"><div class="bx-slideshow"><div><div class="quote">“Lemur is a one-stop tool that allows me to efficiently manage my entire sales process. It’s helping us meet our business goals.”</div><div class="author">Tony Padulo | Executive VP Franchise Development | BrightStar Care</div></div><div><div class="quote">"“Lemur enables us to effectively monitor and improve our system engagement on an ongoing basis.”</div><div class="author">John Rotche | Managing Director and CEO | FranWorth</div></div><div><div class="quote">“By using FranConnect, we’ve seen an increase in prospect engagement and we’re moving them more quickly through the entire sales process.”</div><div class="author">Aaron Goldberg | VP Franchise Development | Zips Dry Cleaning</div></div><div><div class="quote">“Lemur is the most complete solution that addresses the key components all franchisors need. It enhances our productivity in our day-to-day operations.”</div><div class="author">Mike Bidwell | President and CEO | The Dwyer Group</div></div></div></div>
 </div></section>
 
 </div></div></div><!-- close content main div --> <!-- section close by builder template --></div>
