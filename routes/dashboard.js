@@ -8,8 +8,6 @@ router.get('/', function(req, res, next) {
      res.render("dashboard");
 });
 
-app.get('/chartData',function(req, res, next){
 
-})
 
 module.exports = router;
