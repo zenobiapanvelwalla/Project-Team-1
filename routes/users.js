@@ -79,6 +79,9 @@ router.post('/login',function(req,res,next){
         if(err){
           console.log(err);
         }
+        //adding user id and user type to session
+        req.session.user_id = user.id;
+        req.session.user_type = user.user_type;
       });
       response.success = true;
       response.statusCode = 200;

@@ -16,6 +16,7 @@ var tasksRouter = require('./routes/tasks');
 var signUpFranchsior = require('./routes/signUpFranchsior');
 var login = require('./routes/login');
 var signUpFranchisee = require('./routes/signUpFranchisee');
+var dashboard = require('./routes/dashboard');
 
 var app = express();
 
@@ -45,7 +46,8 @@ app.use('/leads', leads);
 app.use('/tasks', tasksRouter);
 app.use('/signUpFranchsior',signUpFranchsior);
 app.use('/login',login);
-app.use('/signUpFranchisee',signUpFranchisee)
+app.use('/signUpFranchisee',signUpFranchisee);
+app.use('/dashboard',dashboard);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
