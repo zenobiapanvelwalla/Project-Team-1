@@ -1,12 +1,18 @@
 var express = require('express');
 var router = express.Router();
-var con = require('../connection_pool');
+var localStorage = require('node-localstorage');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
-     res.render("dashboard");
+    req.session.destroy();
+    localStorage.clear();
+
+    res.render("index");
 });
+
+
+
 
 
 

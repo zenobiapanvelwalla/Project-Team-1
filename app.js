@@ -2,8 +2,8 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
-var cookieParser = require('cookie-parser');
 var flash = require('connect-flash');
+var cookieParser = require('cookie-parser');
 var bodyParese = require('body-parser');
 var logger = require('morgan');
 var session = require('express-session');
@@ -14,11 +14,11 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var leads = require('./routes/leads');
 var tasksRouter = require('./routes/tasks');
-var signUpFranchsior = require('./routes/signUpFranchsior');
-var login = require('./routes/login');
-var signUpFranchisee = require('./routes/signUpFranchisee');
-var dashboard = require('./routes/dashboard');
 
+var login = require('./routes/login');
+
+var dashboard = require('./routes/dashboard');
+var signout = require('./routes/signout');
 var app = express();
 
 
@@ -43,6 +43,7 @@ app.use(function(req,res,next){
   res.locals.error_msg = req.flash('error_msg');
   next();
 });
+
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -50,16 +51,33 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/leads', leads);
 app.use('/tasks', tasksRouter);
-app.use('/signUpFranchsior',signUpFranchsior);
+
 app.use('/login',login);
-app.use('/signUpFranchisee',signUpFranchisee);
+
 app.use('/dashboard',dashboard);
+app.use('/signout',signout);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
 
+app.get('/chartData', function (req, res) {
 
+  var sql = `SELECT * FR WHERE UserId = ${UserId}`;
+  var query = connection.query(sql,(error, results) => {
+      if(error) throw error;
+      console.log(results);
+      if(results != undefined)
+      {res.send({data:'Fund Added'});
+          req.session.UserId = req.body.UserId;
+          
+      }
+          else{
+              res.send('Invalid');
+          }
+  });
+  res.send(req.params)
+})
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
