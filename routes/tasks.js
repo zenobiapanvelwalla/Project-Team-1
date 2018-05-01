@@ -22,7 +22,8 @@ var upload = multer({ storage: storage, dest: 'documents/' });
 
 router.post('/', function(req, res, next) {
   
-  let user_id = 1;
+  let user_id = req.session.user_id;
+  console.log("fran id",user_id);
   console.log(req.body);
   if(Array.isArray(req.body.task_name)){
   for(var i=0;i<req.body.task_name.length;i++){
