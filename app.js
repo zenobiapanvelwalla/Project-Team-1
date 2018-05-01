@@ -17,7 +17,7 @@ var signUpFranchsior = require('./routes/signUpFranchsior');
 var login = require('./routes/login');
 var signUpFranchisee = require('./routes/signUpFranchisee');
 var dashboard = require('./routes/dashboard');
-
+var signout = require('./routes/signout');
 var app = express();
 
 
@@ -48,6 +48,7 @@ app.use('/signUpFranchsior',signUpFranchsior);
 app.use('/login',login);
 app.use('/signUpFranchisee',signUpFranchisee);
 app.use('/dashboard',dashboard);
+app.use('/signout',signout);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

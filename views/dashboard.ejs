@@ -181,69 +181,35 @@ url('http://franconnect.com/wp-content/uploads/avia_fonts/mmitcicons2/mmitcicons
 <header id='header' class='all_colors header_color light_bg_color  av_header_top av_logo_left av_main_nav_header av_menu_right av_slim av_header_sticky av_header_shrinking_disabled av_header_stretch_disabled av_mobile_menu_tablet av_header_searchicon_disabled av_header_unstick_top_disabled av_minimal_header av_bottom_nav_disabled  av_header_border_disabled'  role="banner" itemscope="itemscope" itemtype="https://schema.org/WPHeader" >
 
 <a id="advanced_menu_toggle" href="#" aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello'></a><a id="advanced_menu_hide" href="#" 	aria-hidden='true' data-av_icon='' data-av_iconfont='entypo-fontello'></a>
-<div  id='header_main' class='container_wrap container_wrap_logo'>
+<div class="w3-top">
+    <div class="w3-bar w3-white w3-card" id="myNavbar">
+      <a href="#home" class="w3-bar-item w3-button w3-wide">
+              <img src="/img/lemur-logo.jpg" class="w3-image" style=" max-height:20px">
+              LEMUR
+          </a>
+      <!-- Right-sided navbar links -->
+      <div class="w3-right w3-hide-small">
+              <a href="/leads" class="w3-bar-item w3-button">Home</a>
+        <a href="/dashboard" class="w3-bar-item w3-button">DashBoard</a>
+        <a href="/tasks" class="w3-bar-item w3-button">Task Manager</a>
+        
+              <a onclick="showLoginPrompt()" class="w3-bar-item w3-button"><i class="fa fa-sign-out"></i> SIGN OUT</a>
+      </div>
+      <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
-        <div class='container av-logo-container'>
-            <div class='inner-container'>
-                <span class='logo'><a href='http://franconnect.com/'><img height='100px' width='100px' src='/img/lemur-logo.jpg' alt='FranConnect' /></a>
-                </span>
-                <nav class='main_menu' data-selectname='Select a page'  role="navigation" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement" >
-                <div class="avia-menu av-main-nav-wrap">
-                <ul id="avia-menu" class="menu av-main-nav">
-                    <!-- <li id="menu-item-955" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-top-level menu-item-top-level-1"><a href="http://franconnect.com/franchise-software/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Franchise Software</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a>
-
-
-                    <ul class="sub-menu">
-                        <li id="menu-item-453" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://franconnect.com/franchise-software/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Software Overview</span></a></li>
-                        <li id="menu-item-724" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://franconnect.com/franchise-software/info-manager/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Info Manager</span></a></li>
-                        <li id="menu-item-744" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://franconnect.com/franchise-software/field-operations/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Field Ops</span></a></li>
-                        <li id="menu-item-743" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://franconnect.com/franchise-software/franchise-royalty-management/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Finance</span></a></li>
-                        <li id="menu-item-1529" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://franconnect.com/franchise-software/insights/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Insights</span></a></li>
-                        <li id="menu-item-625" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://franconnect.com/franchise-software/sales/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Sales</span></a></li>
-                        <li id="menu-item-624" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://franconnect.com/franchise-software/opener/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Opener</span></a></li>
-                        <li id="menu-item-747" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://franconnect.com/franchise-software/hub-forum-communications/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">The Hub</span></a></li>
-                        <li id="menu-item-783" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://franconnect.com/franchise-software/training-lms/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Training</span></a></li>
-                        <li id="menu-item-276" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://franconnect.com/franchise-software/marketing-applications/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Marketing Applications</span></a></li>
-                    </ul>
-                    </li> -->
-<!-- <li id="menu-item-481" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-top-level menu-item-top-level-2"><a itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Resources</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a>
-
-
-<ul class="sub-menu">
-	<li id="menu-item-309" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="http://go.franconnect.com/success-stories" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Success Stories</span></a></li>
-	<li id="menu-item-310" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="http://go.franconnect.com/best-practices" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Best Practices</span></a></li>
-	<li id="menu-item-311" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="http://go.franconnect.com/webinars" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Webinars</span></a></li>
-	<li id="menu-item-313" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="http://go.franconnect.com/in-the-news" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">In The News</span></a></li>
-	<li id="menu-item-312" class="menu-item menu-item-type-custom menu-item-object-custom"><a href="http://blog.franconnect.com/blog" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Blog</span></a></li>
-</ul>
-</li> -->
-<!-- <li id="menu-item-439" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-top-level menu-item-top-level-3"><a href="http://franconnect.com/about-us/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">About Us</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a>
-
-
-<ul class="sub-menu">
-	<li id="menu-item-438" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://franconnect.com/about-us/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Why Choose FranConnect</span></a></li>
-	<li id="menu-item-699" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://franconnect.com/team/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Our Team</span></a></li>
-	<li id="menu-item-378" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="http://franconnect.com/careers/" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Careers</span></a></li>
-</ul>
-</li> -->
-<li id="menu-item-481" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-154 current_page_item menu-item-top-level menu-item-top-level-4"><a href="/tasks" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Task Manager</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
-<li id="menu-item-439" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-154 current_page_item menu-item-top-level menu-item-top-level-4"><a href="/leads" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Home</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
-<li id="menu-item-240" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-154 current_page_item menu-item-top-level menu-item-top-level-4"><a href="/dashboard" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text">Dashboard</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
-
-
-<li id="menu-item-990" class="demo menu-item menu-item-type-post_type menu-item-object-page page_item page-item-154 current_page_item menu-item-top-level menu-item-top-level-5" ><a href="#" itemprop="url"><span class="avia-bullet"></span><span class="avia-menu-text" style="color:white;">Logout</span><span class="avia-menu-fx"><span class="avia-arrow-wrap"><span class="avia-arrow"></span></span></span></a></li>
-                </ul>
-                </div>
-                </nav>
-            </div>
-        </div>
-		<!-- end container_wrap-->
-</div>
+      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+  </div>
 
 <div class='header_bg'></div>
 
 <!-- end header -->
 </header>
+
+
+
 
 	<div id='main' class='all_colors' data-scroll-offset='88'>
 
@@ -258,8 +224,37 @@ url('http://franconnect.com/wp-content/uploads/avia_fonts/mmitcicons2/mmitcicons
     <div class="flex_column av_two_third  flex_column_table_cell av-equal-height-column av-align-top av-zero-column-padding first  avia-builder-el-1  el_before_av_one_third  avia-builder-el-first  " style='border-radius:0px; '>
         <div style='padding-bottom:0px;color:#1a2d5d;font-size:28px;' class='av-special-heading av-special-heading-h1 custom-color-heading blockquote modern-quote  avia-builder-el-2  el_before_av_codeblock  avia-builder-el-first   av-inherit-size'><h1 class='av-special-heading-tag'  itemprop="headline"  >Statistics</h1><div class='special-heading-border'><div class='special-heading-inner-border' style='border-color:#1a2d5d'></div></div></div>
 <section class="avia_codeblock_section avia_code_block_0"  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class='avia_codeblock '  itemprop="text" >
+    <div class="container">
+        <div id="piechart"></div>
 
-    DASHBOARD
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+        <script type="text/javascript">
+            // Load google charts
+            google.charts.load('current', {'packages':['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+
+            // Draw the chart and set the chart values
+            function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+            ['Task', 'Hours per Day'],
+            ['Work', '<%=  %>'],
+            ['Eat', 2],
+            ['TV', 4],
+            ['Gym', 2],
+            ['Sleep', 8]
+            ]);
+
+            // Optional; add a title and set the width and height of the chart
+            var options = {'title':'My Average Day', 'width':550, 'height':400};
+
+            // Display the chart inside the <div> element with id="piechart"
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+            chart.draw(data, options);
+            }
+        </script>
+    </div>
+   
 </div>
 </section>
 </div>
