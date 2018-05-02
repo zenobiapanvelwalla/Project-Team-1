@@ -309,7 +309,7 @@ url('http://franconnect.com/wp-content/uploads/avia_fonts/mmitcicons2/mmitcicons
 <script type="text/javascript">
 function sendEmail(e){
     console.log(e.target.id);
-    fetch("http://localhost:3000/sendEmail_Copy",{
+    fetch("http://ec2-54-157-219-167.compute-1.amazonaws.com:3000/sendEmail_Copy",{
               method: 'POST',
                headers:{
               'Accept':'application/json,text/plain,*/*',
