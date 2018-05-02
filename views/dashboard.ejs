@@ -302,7 +302,7 @@ url('http://franconnect.com/wp-content/uploads/avia_fonts/mmitcicons2/mmitcicons
 
                         var status_data=[];
                         var status_label=[];
-                        fetch('http://localhost:3000/chartData/status')
+                        fetch('http://ec2-54-157-219-167.compute-1.amazonaws.com:3000/chartData/status')
                                 .then(function(response) {
                                         return response.json();
                                     })
