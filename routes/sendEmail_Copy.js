@@ -25,7 +25,7 @@ router.post('/',function(req,res,next){
           from: '"Lemur System" <lemurfranchiseconnect@gmail.com>', // sender address
           to: result[0].leademail, // list of receivers
           subject: 'Franchising Opprutunity, You Have Been Waiting For', // Subject line
-          text: 'Congratulations!!! You Have Selected as Prospective Franchisee for ' + result[0].company_name+
+          text: 'Congratulations!!! You Have Been Selected as Prospective Franchisee for ' + result[0].company_name+
           '.Please Sign in on http://localhost:3000/ with you email and this Key: '+result[0].frankey, // plain text body
           // html body
         };
