@@ -57,7 +57,7 @@
 <link rel='dns-prefetch' href='//s.w.org' />
 <link rel="alternate" type="application/rss+xml" title="FranConnect &raquo; Feed" href="http://franconnect.com/feed/" />
 <link rel="alternate" type="application/rss+xml" title="FranConnect &raquo; Comments Feed" href="http://franconnect.com/comments/feed/" />
-
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 <!-- google webfont font replacement -->
 <link rel='stylesheet' id='avia-google-webfont' href='//fonts.googleapis.com/css?family=Lato:300,400,700%7COpen+Sans:400,600' type='text/css' media='all'/>
 		<script type="text/javascript">
@@ -265,28 +265,31 @@ url('http://franconnect.com/wp-content/uploads/avia_fonts/mmitcicons2/mmitcicons
             <h1 class='av-special-heading-tag'  itemprop="headline"  >List Of Leads</h1>
             <div class='special-heading-border'><div class='special-heading-inner-border' style='border-color:#1a2d5d'></div></div></div>
 <section class="avia_codeblock_section avia_code_block_0"  itemscope="itemscope" itemtype="https://schema.org/CreativeWork" ><div class='avia_codeblock '  itemprop="text" >
-
+    <div class="alert alert-success" role=""alert id="emailsent" style="display:none">Email Sent</div>
     <table style="text-align:left; border:1px; width:100%" id="input_table">
       <thead>
         <th style="width:20%">First Name</th>
-        <th style="width:30%">Last Name</th>
+        <th style="width:20%">Last Name</th>
         <th style="width:30%">Email</th>
         <th style="width:15%">Phone Number</th>
+        <th style="width:10%"> </th>
         <th style="width:5%"></th>
       </thead>
       <tbody>
           <% for(var i=0;i<leads.length;i++){ %>
         <tr>
-          <td><%= leads[i]['first_name'] %></td>
-          <td><%= leads[i]['last_name'] %></td>
-          <td><%= leads[i]['email'] %></td>
+          <td id="firstname"><%= leads[i]['first_name'] %></td>
+          <td id="lastname"><%= leads[i]['last_name'] %></td>
+          <td id="email"><%= leads[i]['email'] %></td>
           <td><%= leads[i]['phone_number'] %></td>
+          <td><a  id="<%= leads[i]['id']%>" style="text-decoration:underline"
+              onclick="sendEmail(event)"> Send Email</a></td>
           <td><a href="/leads/<%= leads[i]['id']%>">Details</a></td>
         </tr>
         <% }  %>
       </tbody>
     </table>
-
+    <p>*Click on "Send Email" to send access info of LEMUR System to the lead</p>
 
 </disv>
 </section>
@@ -303,6 +306,31 @@ url('http://franconnect.com/wp-content/uploads/avia_fonts/mmitcicons2/mmitcicons
 <!-- close content main div -->
     </div>
 </div>
+<script type="text/javascript">
+function sendEmail(e){
+    console.log(e.target.id);
+    fetch("http://localhost:3000/sendEmail_Copy",{
+              method: 'POST',
+               headers:{
+              'Accept':'application/json,text/plain,*/*',
+              'Content-type':'application/json'
+            },
+          body:JSON.stringify({lead_id:e.target.id})
+          })
+          .then((res)=>res.json())
+          .then((data)=>{
+              console.log(data.data);
+              if(data.data==="Email Sent"){
+                document.getElementById("emailsent").style.display = "block";
+                
+              }else{
+                  alert("Oops!!Something Wrong");
+              }
+          })
+
+}
+
+</script>
 <div id='divider' class='avia-section main_color avia-section-no-padding avia-no-border-styling avia-bg-style-scroll  avia-builder-el-8  el_after_av_section  el_before_av_section  av-minimum-height av-minimum-height-custom container_wrap fullsize' style = 'background-repeat: no-repeat; background-image: url(http://franconnect.com/wp-content/uploads/2016/10/bg-footer.png); background-attachment: scroll; background-position: center center; ' data-section-bg-repeat='no-repeat' ><div class='container' style='height:9px'><div class='template-page content  av-content-full alpha units'><div class='post-entry post-entry-type-page post-entry-154'><div class='entry-content-wrapper clearfix'>
 </div></div></div><!-- close content main div --></div></div>
 <div id='contact-testimonials' class='avia-section main_color avia-section-default avia-no-shadow av-parallax-section av-section-color-overlay-active avia-bg-style-parallax  avia-builder-el-9  el_after_av_section  avia-builder-el-last  av-minimum-height av-minimum-height-custom container_wrap fullsize' style = 'background-image: url(/wp-content/uploads/2016/10/contact-franconnect-franchise-software-sm.jpg);' data-section-bg-repeat='no-repeat' >

@@ -16,9 +16,9 @@ var leads = require('./routes/leads');
 var tasksRouter = require('./routes/tasks');
 var chartData = require('./routes/chartData')
 var login = require('./routes/login');
-
 var dashboard = require('./routes/dashboard');
 var signout = require('./routes/signout');
+var sendEmail_Copy=require('./routes/sendEmail_Copy');
 var app = express();
 
 
@@ -53,9 +53,9 @@ app.use('/leads', leads);
 app.use('/tasks', tasksRouter);
 app.use('/chartData',chartData);
 app.use('/login',login);
-
 app.use('/dashboard',dashboard);
 app.use('/signout',signout);
+app.use('/sendEmail_Copy',sendEmail_Copy);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -72,5 +72,10 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+
+
+
 
 module.exports = app;

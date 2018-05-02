@@ -115,6 +115,7 @@ router.post('/login',function(req,res,next){
      if(err) throw err;
      if(user.length>0){
       var user_id = user[0]['id'];
+     
       req.session.user_id = user_id;
       localStorage.setItem('user_id',user_id);
       localStorage.setItem('company_name',user[0]['company_name']);
