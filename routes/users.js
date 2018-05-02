@@ -134,7 +134,7 @@ router.post('/login',function(req,res,next){
      }
    });
   } else {
-    //var sql = 'SELECT * FROM leads where email=${[req.body.email} AND key=${V}'
+    
     con.query('SELECT * FROM leads WHERE email=? AND frankey=?',[req.body.email,req.body.password],function(err,lead){
       if(err) throw err;
       if(lead.length>0){

@@ -1,11 +1,12 @@
 let mysql = require('mysql');
+require('dotenv').config()
 
 function connectionPool() {
     var pool = mysql.createPool({
         connectionLimit: 100, //important
-        host: "fms.cbvajauho28z.us-east-1.rds.amazonaws.com",
-        user: "root",
-        password:"password",
+        host: process.env.DB_HOST,
+        user:process.env.DB_USER,
+        password:process.env.DB_PASS,
         database:"fms",
         connectionLimit: 5,
         connectTimeout:7000

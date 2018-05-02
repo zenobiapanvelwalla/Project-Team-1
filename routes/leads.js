@@ -51,10 +51,7 @@ router.get('/',function(req,res,next){
     }
   });
 
-  
-
-  //res.render('leadsList',{title:"Home",leads:leads});
-  
+   
 });
 
 router.get('/:lead_id',function(req,res){
