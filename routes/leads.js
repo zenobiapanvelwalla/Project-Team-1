@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var con = require('../connection_pool');
 const nodemailer = require('nodemailer');
+var redis = require('redis').createClient();
 /* GET home page. */
 router.post('/', function(req, res, next) {
   let user_id = 1;
@@ -31,14 +32,26 @@ router.post('/', function(req, res, next) {
   });
 });
 
+
 router.get('/',function(req,res,next){
   //user_id = req.session.user_id;
   var user_id = localStorage.getItem('user_id');
   var company_name = localStorage.getItem('company_name');
-  con.query('SELECT * FROM leads WHERE user_id=?',[user_id],function(err,leads){
-    if(err) throw err;
-    res.render('leadsList',{title:"Home",leads:leads,company_name:company_name});
+
+  var redisKey= "SELECT * FROM leads WHERE user_id="+user_id;
+  redis.get(JSON.stringify(redisKey),function(err, leads){
+    if(!err && leads != null){
+      res.render('leadsList',{title:"Home",leads:JSON.parse(leads),company_name:company_name});
+      
+    }else{
+      con.query('SELECT * FROM leads WHERE user_id=?',[user_id],function(err,leads){
+        if(err) throw err;
+        res.render('leadsList',{title:"Home",leads:leads,company_name:company_name});
+      });
+    }
   });
+
+  
 
   //res.render('leadsList',{title:"Home",leads:leads});
   
