@@ -6,7 +6,9 @@ function connectionPool() {
         host: "fms.cbvajauho28z.us-east-1.rds.amazonaws.com",
         user: "root",
         password:"password",
-        database:"fms"
+        database:"fms",
+        connectionLimit: 5,
+        connectTimeout:7000
        
     });
     pool.getConnection(function(err, connection) {

@@ -14,7 +14,13 @@ if (typeof localStorage === "undefined" || localStorage === null) {
  
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  con.query("SELECT * FROM users",function(err,users){
+    if(err) throw err;
+    console.log(users);
+    res.send(users);
+
+  });
+ 
 });
 
 router.post('/',function(req,res,next){
@@ -139,5 +145,5 @@ router.post('/login',function(req,res,next){
 
 });
 
-router.post('/')
+
 module.exports = router;
