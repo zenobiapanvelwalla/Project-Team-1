@@ -55,14 +55,15 @@ res.redirect('/tasks');
 
 router.get('/',function(req,res,next){
   let franchisor_id = localStorage.getItem("user_id");
+  let company_name = localStorage.getItem("company_name");
   console.log(franchisor_id);
   con.query('SELECT * FROM tasks WHERE franchisor_id=?',[franchisor_id],function(err,ready_tasks){
     if(err) throw err;
     if(ready_tasks.length>0){
       console.log(ready_tasks);
-      res.render('tasksCopy',{title:"Add Tasks",ready_tasks:ready_tasks});
+      res.render('tasksCopy',{title:"Add Tasks",ready_tasks:ready_tasks,company_name:company_name});
     } else {
-      res.render('tasksCopy',{title:"Add Tasks",ready_tasks:""});
+      res.render('tasksCopy',{title:"Add Tasks",ready_tasks:"",company_name:company_name});
     }
   });
   
