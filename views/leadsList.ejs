@@ -283,7 +283,7 @@ url('http://franconnect.com/wp-content/uploads/avia_fonts/mmitcicons2/mmitcicons
           <td id="email"><%= leads[i]['email'] %></td>
           <td><%= leads[i]['phone_number'] %></td>
           <td><a  id="<%= leads[i]['id']%>" style="text-decoration:underline"
-              onclick="sendEmail(event)"> Send Email</a></td>
+              onclick="sendEmail(event)"> Send Email*</a></td>
           <td><a href="/leads/<%= leads[i]['id']%>">Details</a></td>
         </tr>
         <% }  %>

@@ -285,7 +285,15 @@ url('http://franconnect.com/wp-content/uploads/avia_fonts/mmitcicons2/mmitcicons
                     ],
                     borderWidth: 1
                 }]
-            },
+                },options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
             
         });
                     }
@@ -331,7 +339,15 @@ url('http://franconnect.com/wp-content/uploads/avia_fonts/mmitcicons2/mmitcicons
                                     ],
                                     borderWidth: 1
                                 }]
-                            },
+                            },options: {
+                                    scales: {
+                                        yAxes: [{
+                                            ticks: {
+                                                beginAtZero: true
+                                            }
+                                        }]
+                                    }
+                }
                             
                         });
                                     }
