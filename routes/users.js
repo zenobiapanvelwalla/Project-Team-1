@@ -40,7 +40,7 @@ router.post('/',function(req,res,next){
     // Store hash in your password DB.
     con.query('INSERT INTO users (first_name,last_name,email,phone_number,city,state,country,zipcode,address,password,company_name) VALUES(?,?,?,?,?,?,?,?,?,?,?)',[first_name,last_name,email,phone_number,city,state,country,zipcode,address,password,company_name],function(err, result,fields) {
       if(err) throw err;
-      res.render('index',{title:'Registration Complete!',error:null});
+      res.render('registrationSuccess',{first_name: first_name});
     });
   //});
 

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>LEMUR - LEad Management Update and Report</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+		<style>
+		body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+		body, html {
+		    height: 100%;
+		    line-height: 1.8;
+		}
+		/* Full height image header */
+		.bgimg-1 {
+		    background-position: center;
+		    background-size: cover;
+		    background-image: url("/img/banner.jpg");
+		    min-height: 100%;
+		}
+		.w3-bar .w3-button {
+		    padding: 16px;
+		}
+		</style>
+	</head>
+	<body>
+
+	<!-- Navbar (sit on top) -->
+	<div class="w3-top">
+	  <div class="w3-bar w3-white w3-card" id="myNavbar">
+	    <a href="#home" class="w3-bar-item w3-button w3-wide">
+				<img src="/img/lemur-logo.jpg" class="w3-image" style="height:100%; max-height:60px">
+				LEMUR
+			</a>
+	    <!-- Right-sided navbar links -->
+	    <div class="w3-right w3-hide-small">
+				<a href="#home" class="w3-bar-item w3-button">HOME</a>
+	      <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
+	      <a href="#team" class="w3-bar-item w3-button">TEAM</a>
+	      <a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
+				<a onclick="showLoginPrompt()" class="w3-bar-item w3-button"><i class="fa fa-sign-in"></i> SIGN IN</a>
+	    </div>
+	    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+	    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+	      <i class="fa fa-bars"></i>
+	    </a>
+	  </div>
+	</div>
+
+	<div id="login-modal" class="w3-modal"  style="display:none;margin-top:100px">
+		<div class='w3-modal-content w3-animate-zoom w3-text-white w3-black w3-display-topright w3-opacity-min' style="width:35%;padding:48px">
+			<span onclick="document.getElementById('login-modal').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+			<span class='w3-xlarge w3-hide-small'>Sign In</span>
+			<br>
+			<form action='/users/login' method="post">
+				<p><input class='w3-input w3-border' type='text' placeholder='Email' required name='Email'></p>
+				<p><input class='w3-input w3-border' type='password' placeholder='Password' required name='Password'></p>
+				<p><button class='w3-button w3-blue' type='submit'><i class='fa fa-sign-in'></i> SIGN IN</button>
+				<button class='w3-button w3-green' onclick="document.getElementById('login-modal').style.display='none'; document.getElementById('registration-modal').style.display='block';"><i class='fa fa-user'></i> REGISTER</button></p>
+			</form>
+		</div>
+	</div>
+
+	<div id="registration-modal" class="w3-modal"  style="display:none;margin-top:100px">
+		<div class='w3-modal-content w3-text-white w3-black w3-display-topright w3-opacity-min' style="width:50%;padding:48px">
+			<span onclick="document.getElementById('registration-modal').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+			<span class='w3-xlarge w3-hide-small'>REGISTER</span>
+			<br>
+			<form action="/users" method="POST" id="registration-form">
+				<p>
+					<input class='w3-input w3-border w3-half' type='text' placeholder='First Name' required name='first_name'>
+					<input class='w3-input w3-border w3-half' type='text' placeholder='Last Name' required name='last_name'>
+				</p>
+				<p><input class='w3-input w3-border' type='text' placeholder='Email' required name='email'></p>
+				<p><input class='w3-input w3-border' type='text' placeholder='Phone' required name='phone_number'></p>
+				<p>
+					<input class='w3-input w3-border w3-half' type='text' placeholder='City' required name='city'>
+					<input class='w3-input w3-border w3-half' type='text' placeholder='State' required name='state'>
+				</p>
+				<p>
+					<input class='w3-input w3-border w3-half' type='text' placeholder='Country' required name='country'>
+					<input class='w3-input w3-border w3-half' type='text' placeholder='Zip Code' required name='zipcode'>
+				</p>
+				<p><input class='w3-input w3-border' type='text' placeholder='Address' required name='address'></p>
+				<p><input class='w3-input w3-border' type='password' placeholder='Password' required name='password'></p>
+				<p><button class='w3-button w3-green' type='submit'><i class='fa fa-user'></i> REGISTER</button>
+			</form>
+		</div>
+	</div>
+
+
+	<!-- Sidebar on small screens when clicking the menu icon -->
+	<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+	  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+		<a href="#home" onclick="w3_close()" class="w3-bar-item w3-button">HOME</a>
+		<a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
+	  <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button">TEAM</a>
+	  <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
+		<a href="/signup" onclick="w3_close()" class="w3-bar-item w3-button">SIGN IN</a>
+	</nav>
+
+	<!-- Header with full-height image -->
+	<header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
+	  <div class="w3-display-left w3-text-white" style="padding:48px">
+	    <span class="w3-jumbo w3-hide-small w3-black w3-opacity-min">Welcome, <%= first_name %></span><br>
+	    <span class="w3-xxlarge w3-black w3-opacity-min">Account successfully created. <br>Please sign in to continue.</span><br>
+	  </div>
+	  <div class="w3-display-bottomleft w3-text-grey w3-large" style="padding:24px 48px">
+	    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+	    <i class="fa fa-instagram w3-hover-opacity"></i>
+	    <i class="fa fa-snapchat w3-hover-opacity"></i>
+	    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+	    <i class="fa fa-twitter w3-hover-opacity"></i>
+	    <i class="fa fa-linkedin w3-hover-opacity"></i>
+	  </div>
+	</header>
+
+	<!-- About Section -->
+	<div class="w3-container" style="padding:128px 16px" id="about">
+	  <h3 class="w3-center">ABOUT THE COMPANY</h3>
+	  <p class="w3-center w3-large">Key features of our company</p>
+	  <div class="w3-row-padding w3-center" style="margin-top:64px">
+	    <div class="w3-quarter">
+	      <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></i>
+	      <p class="w3-large">Responsive</p>
+	      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+	    </div>
+	    <div class="w3-quarter">
+	      <i class="fa fa-heart w3-margin-bottom w3-jumbo"></i>
+	      <p class="w3-large">Passion</p>
+	      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+	    </div>
+	    <div class="w3-quarter">
+	      <i class="fa fa-diamond w3-margin-bottom w3-jumbo"></i>
+	      <p class="w3-large">Design</p>
+	      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+	    </div>
+	    <div class="w3-quarter">
+	      <i class="fa fa-cog w3-margin-bottom w3-jumbo"></i>
+	      <p class="w3-large">Support</p>
+	      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+	    </div>
+	  </div>
+	</div>
+
+	<!-- Promo Section - "We know design" -->
+	<div class="w3-container w3-light-grey" style="padding:128px 16px">
+	  <div class="w3-row-padding">
+	    <div class="w3-col m6">
+	      <h3>We know Franchisees.</h3>
+	      <p>LEMUR has been in the business of providing franchisee management solutions for over a decade.
+					<br>We are the experts in helping you manage, update and report on your leads. We make it really easy so you can focus on your core business.
+				</p>
+	    </div>
+	    <div class="w3-col m6">
+	      <img class="w3-image w3-large" src="/img/Franchisee-banner.jpg" alt="Pizza" width="700" height="394">
+	    </div>
+	  </div>
+	</div>
+
+	<!-- Team Section -->
+	<div class="w3-container" style="padding:128px 16px" id="team">
+	  <h3 class="w3-center">THE TEAM</h3>
+	  <p class="w3-center w3-large">The ones who run this company</p>
+	  <div class="w3-row-padding" style="margin-top:64px">
+	    <div class="w3-col l3 m6 w3-margin-bottom">
+	      <div class="w3-card">
+	        <img src="/img/team/aprajita.jpeg" alt="Aprajita" style="width:100%; min-height:300px">
+	        <div class="w3-container">
+	          <h3>Aprajita</h3>
+	          <p class="w3-opacity">Chief Hustler</p>
+	          <p>No problem is too big for Aprajita. She has a knack for solving all types of problems. She is the creative force behind the company and keeps everyone on their toes.</p>
+	          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p>
+	        </div>
+	      </div>
+	    </div>
+	    <div class="w3-col l3 m6 w3-margin-bottom">
+	      <div class="w3-card">
+	        <img src="/img/team/zenobia.jpeg" alt="Zenobia" style="width:100%; min-height:300px">
+	        <div class="w3-container">
+	          <h3>Zenobia</h3>
+	          <p class="w3-opacity">One Woman Army</p>
+	          <p>Zenobia often takes challenges worthy of an army of developers. She is the brains of the company. We at LEMUR suspect she has cloned herself.</p>
+	          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p>
+	        </div>
+	      </div>
+	    </div>
+	    <div class="w3-col l3 m6 w3-margin-bottom">
+	      <div class="w3-card">
+	        <img src="/img/team/aishwarya.jpg" alt="Aishwarya" style="width:100%; min-height:300px">
+	        <div class="w3-container">
+	          <h3>Aishwarya</h3>
+	          <p class="w3-opacity">Spider Man (Web Developer)</p>
+	          <p>Aishwarya is the laziest of the bunch, and always finds an easy and efficient way to solve any challenge. He has been known to be awake at random hours of the day.</p>
+	          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p>
+	        </div>
+	      </div>
+	    </div>
+	    <div class="w3-col l3 m6 w3-margin-bottom">
+	      <div class="w3-card">
+	        <img src="/img/team//tong.jpg" alt="Tong" style="width:100%; min-height:300px">
+	        <div class="w3-container">
+	          <h3>Tong</h3>
+	          <p class="w3-opacity">Clueless Extraordinaire</p>
+	          <p>Tong still can not believe how he ended up at LEMUR. A self-proclaimed software guru, Tong actually relies on Google and stackoverflow for all the answers.</p>
+	          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<!-- Promo Section "Statistics" -->
+	<div class="w3-container w3-row w3-center w3-orange w3-padding-64">
+	  <div class="w3-quarter">
+	    <span class="w3-xxlarge">5+</span>
+	    <br>Years
+	  </div>
+	  <div class="w3-quarter">
+	    <span class="w3-xxlarge">10k+</span>
+	    <br>Pizzas baked
+	  </div>
+	  <div class="w3-quarter">
+	    <span class="w3-xxlarge">2+</span>
+	    <br>Branches
+	  </div>
+	  <div class="w3-quarter">
+	    <span class="w3-xxlarge">150+</span>
+	    <br>Clients
+	  </div>
+	</div>
+
+
+	<!-- Contact Section -->
+	<div class="w3-container w3-light-grey" style="padding:128px 16px" id="contact">
+	  <h3 class="w3-center">CONTACT</h3>
+	  <p class="w3-center w3-large">Lets get in touch. Send us a message:</p>
+	  <div class="w3-row-padding" style="margin-top:64px">
+	    <div class="w3-half">
+	      <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> San Jose, US</p>
+	      <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Phone: +1 650 - LEMUR LEMUR</p>
+	      <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: contact@lemur.com</p>
+	      <br>
+	    </div>
+			<div class="w3-col w3-half">
+				<form action="/action_page.php" target="_blank">
+					<p><input class="w3-input w3-border" type="text" placeholder="Name" required name="Name"></p>
+					<p><input class="w3-input w3-border" type="text" placeholder="Email" required name="Email"></p>
+					<p><input class="w3-input w3-border" type="text" placeholder="Subject" required name="Subject"></p>
+					<p><input class="w3-input w3-border" type="text" style="min-height:150px" placeholder="Message" required name="Message"></p>
+					<p>
+						<button class="w3-button w3-black" type="submit">
+							<i class="fa fa-paper-plane"></i> SEND MESSAGE
+						</button>
+					</p>
+				</form>
+			</div>
+	  </div>
+	</div>
+
+	<!-- Footer -->
+	<footer class="w3-center w3-black w3-padding-64">
+	  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+	  <div class="w3-xlarge w3-section">
+	    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+	    <i class="fa fa-instagram w3-hover-opacity"></i>
+	    <i class="fa fa-snapchat w3-hover-opacity"></i>
+	    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+	    <i class="fa fa-twitter w3-hover-opacity"></i>
+	    <i class="fa fa-linkedin w3-hover-opacity"></i>
+	  </div>
+
+	</footer>
+
+	<!-- Add Google Maps -->
+	<script>
+	// Modal Image Gallery
+	function onClick(element) {
+	  document.getElementById("img01").src = element.src;
+	  document.getElementById("modal01").style.display = "block";
+	  var captionText = document.getElementById("caption");
+	  captionText.innerHTML = element.alt;
+	}
+	//signin modal
+	function showLoginPrompt(){
+		document.getElementById("login-modal").style.display="block";
+	}
+	// Toggle between showing and hiding the sidebar when clicking the menu icon
+	var mySidebar = document.getElementById("mySidebar");
+	function w3_open() {
+	    if (mySidebar.style.display === 'block') {
+	        mySidebar.style.display = 'none';
+	    } else {
+	        mySidebar.style.display = 'block';
+	    }
+	}
+	// Close the sidebar with the close button
+	function w3_close() {
+	    mySidebar.style.display = "none";
+	}
+	</script>
+
+	</body>
+</html>
