@@ -11,5 +11,5 @@ After marketing a franchise system successfully, a good franchisor will provide 
 Methodology:
 A Web application can be developed using Javascript, node js or ibm-worklight . The application which has various features like creating a stand-alone web page for marketing, a section to manage royalties , etc. There will be users with different roles in the system as admin(franchisor) , normal user(franchisee).
 Resources:
-1.   https://www.javascript.com 2.   https://angularjs.org
-3.   https://www.ibm.com/mobile
+1.   https://www.javascript.com 2.   https://nodejs.org/en/
+3.   https://expressjs.com/
