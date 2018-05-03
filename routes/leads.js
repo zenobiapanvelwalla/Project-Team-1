@@ -28,7 +28,8 @@ router.post('/', function(req, res, next) {
       "abc"
   ],function(err,lead,fields){
     if(err) throw err;
-    res.send(lead);
+    //res.send(lead);
+    res.render("thankyou");
   });
 });
 
