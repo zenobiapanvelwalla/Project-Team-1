@@ -1,6 +1,4 @@
 # Project-Team-1
-
-I think, I approved Franchise management system and asked you to focus on a specific domain. Please remove other  projects and update the readme. thx
          
 Franchise Management System
 Project Team #1
